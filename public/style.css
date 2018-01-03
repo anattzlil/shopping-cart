@@ -122,3 +122,8 @@ body {
 .clear-cart {
   width: 100%;
 }
+
+
+.itemDescription {
+  display: inline-block;
+}
