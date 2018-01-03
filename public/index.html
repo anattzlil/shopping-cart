@@ -154,9 +154,10 @@
 <script type="text/javascript" src="script.js"></script>
   <script id="template" type="text/x-handlebars-template">
     {{#each cartItem}}
-    <p class="itemDescription">
-        {{itemName}}-${{price}}
+    <p class="itemDescription" data-name="{{itemName}}">
+        {{itemName}}({{quant}})-${{price}}
       </p>
+    <button type="button" class="btn-link removeBtn">Remove</button><br>
    {{/each}}  
 </script>
 
