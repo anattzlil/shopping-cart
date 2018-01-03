@@ -48,7 +48,7 @@ $('.view-cart').on('click', function () {
   $('.shopping-cart').toggleClass('show');
 });
 
-$('.add-to-cart').on('click', function () {
+$('.container').on('click', '.add-to-cart', function () {
   // TODO: get the "item" object from the page
   var itemName = $(this).closest('.item').data().name;
   var price = $(this).closest('.item').data().price;
