@@ -1,8 +1,18 @@
 // an array with all of our cart items
+STORAGE_ID = 'shoppingcart'
+
+var saveToLocalStorage = function () {
+  localStorage.setItem(STORAGE_ID, JSON.stringify(cart.cartItem));
+}
+
+var getFromLocalStorage = function() {
+  return JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
+}
+
 var cart = {
-  cartItem: [
-  ]
+  cartItem: getFromLocalStorage()
 };
+
 
 var _findItemIndexByName = function (name) {
   for (var i = 0; i < cart.cartItem.length; i++) {
@@ -56,17 +66,20 @@ var addItem = function (item) {
   } else {
     cart.cartItem.push(item);
   }
+  saveToLocalStorage();
 };
 
 var clearCart = function () {
   // TODO: Write a function that clears the cart ;-)
   cart.cartItem = [];
   updateCart();
+  saveToLocalStorage();
 }
 
 var removeItem = function (name) {
   var index = _findItemIndexByName(name);
   cart.cartItem.splice(index, 1);
+  saveToLocalStorage();
 };
 
 $('.view-cart').on('click', function () {
@@ -97,4 +110,4 @@ $('.cart-list').on('click', '.removeBtn', function () {
   updateCart();
 });
 // update the cart as soon as the page loads!
-// updateCart();
+updateCart();
