@@ -150,6 +150,15 @@
     <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+
+<script type="text/javascript" src="script.js"></script>
+  <script id="template" type="text/x-handlebars-template">
+    {{#each cartItem}}
+    <p class="itemDescription">
+        {{itemName}}-${{price}}
+      </p>
+   {{/each}}  
+</script>
+
 </body>
 </html>
